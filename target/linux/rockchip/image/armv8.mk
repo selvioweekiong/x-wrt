@@ -295,3 +295,13 @@ define Device/xunlong_orangepi-r1-plus-lts
   DEVICE_PACKAGES := kmod-usb-net-rtl8152
 endef
 TARGET_DEVICES += xunlong_orangepi-r1-plus-lts
+
+define Device/hinlink_opc-h29k
+  DEVICE_VENDOR := HINLINK
+  DEVICE_MODEL := OPC-H29K
+  SOC := rk3528
+  UBOOT_DEVICE_NAME := generic-rk3528
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script rk3528 | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-aic8800s kmod-fb-tft-st7789v wpad-openssl -urngd
+endef
+TARGET_DEVICES += hinlink_opc-h29k
